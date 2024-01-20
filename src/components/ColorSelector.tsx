@@ -6,7 +6,7 @@ import SelectorAlpha from "./SelectorAlpha";
 
 export default function ColorSelector() {
   return (
-    <div>
+    <>
       <div className="flex flex-row gap-0">
         <SaturationLightSelector />
       </div>
@@ -21,7 +21,7 @@ export default function ColorSelector() {
         </div>
       </div>
 
-      <div className="flex gap-2 flex-row">
+      <div className="flex gap-2 flex-row w-full">
         <ColorModeSelector />
 
         <div className="flex flex-row flex-2">
@@ -33,6 +33,6 @@ export default function ColorSelector() {
           <Input className="w-full p-1" type="number" defaultValue={"100"} />
         </div>
       </div>
-    </div>
+    </>
   );
 }

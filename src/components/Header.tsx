@@ -10,10 +10,8 @@ import { MenuIcon } from "lucide-react";
 
 export default function Header() {
   return (
-    <header className="w-full flex justify-between items-end dark:text-gray-100 min-w-[300px]">
-      <span className="text-3xl font-bold tracking-tighter dark:text-gray-100">
-        graggle
-      </span>
+    <header className="w-full flex justify-between items-end min-w-[300px]">
+      <span className="text-3xl font-bold tracking-tighter">graggle</span>
       <Sheet>
         <SheetTrigger>
           <MenuIcon />
