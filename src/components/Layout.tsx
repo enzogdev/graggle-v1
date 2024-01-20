@@ -1,5 +1,6 @@
 import { Canvas } from "./Canvas";
 import ColorSelector from "./ColorSelector";
+import { Footer } from "./Footer";
 import Header from "./Header";
 import PinList from "./PinList";
 import Toolbar from "./ToolBar";
@@ -28,6 +29,7 @@ export function Layout() {
 
           <PinList />
           <Toolbar />
+          <Footer />
         </div>
         <div className="w-full h-full overflow-hidden p-0">
           <Canvas />

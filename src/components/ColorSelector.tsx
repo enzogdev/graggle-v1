@@ -21,16 +21,12 @@ export default function ColorSelector() {
         </div>
       </div>
 
-      <div className="flex gap-2 flex-row w-full">
+      <div className="flex gap-1 flex-row">
         <ColorModeSelector />
 
-        <div className="flex flex-row flex-2">
-          <Input
-            className="p-1 w-full border"
-            type="text"
-            defaultValue={"FF0000"}
-          />
-          <Input className="w-full p-1" type="number" defaultValue={"100"} />
+        <div className="flex">
+          <Input className="w-full" type="text" defaultValue={"FF0000"} />
+          <Input className="w-[5em]" type="number" defaultValue={"100"} />
         </div>
       </div>
     </>
