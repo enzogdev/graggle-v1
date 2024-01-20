@@ -1,5 +1,6 @@
 import { Canvas } from "./Canvas";
-import ColorSelector from "./ColorSelector";
+import ColorPickerWidget from "./ColorPickerWidget/ColorPickerWidget";
+import ColorSolidWidget from "./ColorSolidWidget/ColorSolidWidget";
 import { Footer } from "./Footer";
 import Header from "./Header";
 import PinList from "./PinList";
@@ -22,9 +23,11 @@ export function Layout() {
               </TabsTrigger>
             </TabsList>
             <TabsContent value="picker">
-              <ColorSelector />
+              <ColorPickerWidget />
             </TabsContent>
-            <TabsContent value="solid">Change your password here.</TabsContent>
+            <TabsContent value="solid">
+              <ColorSolidWidget />
+            </TabsContent>
           </Tabs>
 
           <PinList />

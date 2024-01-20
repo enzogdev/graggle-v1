@@ -1,10 +1,10 @@
-import { Input } from "@/components/ui/input";
-import SaturationLightSelector from "./SaturationLightSelector";
+import { Input } from "../ui/input";
 import ColorModeSelector from "./ColorModeSelector";
-import SelectorHue from "./SelectorHue";
+import SaturationLightSelector from "./SaturationLightSelector";
 import SelectorAlpha from "./SelectorAlpha";
+import SelectorHue from "./SelectorHue";
 
-export default function ColorSelector() {
+export default function ColorPickerWidget() {
   return (
     <>
       <div className="flex flex-row gap-0">

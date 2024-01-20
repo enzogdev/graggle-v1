@@ -5,7 +5,7 @@ export default function SelectorHue() {
 
   return (
     <input
-      className="w-full appearance-none h-3 rounded-xl picker"
+      className="appearance-none h-3 rounded-xl picker"
       style={backgroundHue}
       type="range"
       min={0}

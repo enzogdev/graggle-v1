@@ -7,6 +7,16 @@ export default function SaturationLightSelector() {
         background: `linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, #000 100%),linear-gradient(90deg, #FFF 0%, rgba(255, 255, 255, 0.00) 100%),hsl(0, 100%, 50%)`,
         minHeight: "150px",
       }}
-    ></div>
+    >
+      <div
+        className="cursor"
+        draggable
+        style={{
+          position: "absolute",
+          bottom: `calc(50% - 10px)`,
+          left: `calc(50% - 10px)`,
+        }}
+      ></div>
+    </div>
   );
 }
