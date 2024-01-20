@@ -1,5 +1,5 @@
 import { CopyIcon, EyeIcon, PaintBucketIcon, RatioIcon } from "lucide-react";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
   Tooltip,
