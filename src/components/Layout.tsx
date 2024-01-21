@@ -1,4 +1,4 @@
-import { Canvas } from "./Canvas";
+import { Canvas } from "./Canvas/Canvas";
 import ColorPickerWidget from "./ColorPickerWidget/ColorPickerWidget";
 import ColorSolidWidget from "./ColorSolidWidget/ColorSolidWidget";
 import { Footer } from "./Footer";

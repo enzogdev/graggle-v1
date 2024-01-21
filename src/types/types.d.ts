@@ -28,6 +28,11 @@ type Position = {
     x: number;
     y: number;
 }
+type CanvasSize = {
+    ratio: string,
+    orientation: 'portrait' | 'landscape' | null,
+    cssClass: string
+}
 
 type Slider = {
     tag: keyof Color;
