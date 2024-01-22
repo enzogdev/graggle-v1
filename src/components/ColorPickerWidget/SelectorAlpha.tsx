@@ -1,12 +1,16 @@
 import { usePinsStore } from "@/store/PinStore";
+import { convertColor } from "@/utils/colorUtils";
 import { useCallback, useEffect, useState } from "react";
 
 export default function SelectorAlpha() {
-  const backgroundAlpha = {
-    background: `url("alpha-mask.png"),#F00`,
-    backgroundSize: "cover",
-  };
   const { activePin, updatePin, setActivePin } = usePinsStore();
+
+  const backgroundAlpha = {
+    background: `url("alpha-mask.png") no-repeat center/cover, ${
+      activePin !== null ? convertColor(activePin?.color, "hex") : "#F00"
+    }`,
+  };
+
   const [alphaValue, setAlphaValue] = useState(activePin?.color.alpha ?? 1);
 
   const handleAlphaChange = useCallback(
