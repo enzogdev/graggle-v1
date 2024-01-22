@@ -1,19 +1,31 @@
 import { ChevronDown } from "lucide-react";
 import { Button } from "./ui/button";
-import { hslaToRgba } from "@/utils/colorUtils";
+import { convertColor } from "@/utils/colorUtils";
+import { usePinsStore } from "@/store/PinStore";
 
 export default function PinCard(pin: Pin) {
+  const { activePin } = usePinsStore();
+
   return (
     <Button
       variant="outline"
-      className="flex flex-col w-full p-0 overflow-hidden mt-4 group"
+      style={{
+        background: `linear-gradient(135deg, hsla(${pin.color.hue}, ${pin.color.saturation}%, ${pin.color.lightness}%, .15) 0%, hsla(0,0%,0%,0) 80%)`,
+        animation: "animate-fade 4s linear infinite",
+      }}
+      className={
+        "flex flex-col w-full p-0 overflow-hidden mt-4 group " +
+        (activePin === pin && "border-dashed")
+      }
     >
       <div className="flex justify-between w-full h-full items-center">
         <div
-          className="w-12 h-full"
-          style={{ backgroundColor: hslaToRgba(pin.color) }}
+          className="w-10 aspect-square m-1 rounded"
+          style={{ backgroundColor: convertColor(pin.color, "hex") }}
         ></div>
-        <div className="h-full w-full flex items-center p-3">aaa</div>
+        <div className="h-full w-full flex items-center p-3">
+          {convertColor(pin.color, "hex")}
+        </div>
         <Button
           asChild
           variant="ghost"

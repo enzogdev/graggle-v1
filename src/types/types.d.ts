@@ -15,9 +15,6 @@ type Color = {
     alpha: number;
 }
 type Color = {
-    red: number,
-    green: number,
-    blue: number,
     hue: number;
     saturation: number;
     lightness: number;
@@ -33,6 +30,7 @@ type CanvasSize = {
     orientation: 'portrait' | 'landscape' | null,
     cssClass: string
 }
+type ColorFormat = 'rgb' | 'rgba' | 'hsl' | 'hsla' | 'hex' | 'hexa'
 
 type Slider = {
     tag: keyof Color;
