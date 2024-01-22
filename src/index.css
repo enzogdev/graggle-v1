@@ -104,3 +104,18 @@ input[type="range"]::-webkit-slider-thumb {
   box-shadow: 0 0 2px 0 #555;
   transition: background .3s ease-in-out;
 }
+
+/* TODO Integrate this animation into tailwind */
+.animate-fade-down {
+  animation: fadeDown 100ms ease-in;
+}
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

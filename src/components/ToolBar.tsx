@@ -16,13 +16,13 @@ import {
 import { usePinsStore } from "@/store/PinStore";
 
 export default function Toolbar() {
-  const { isPinsVisible, updatePinsVisibility } = usePinsStore();
+  const { isPinsVisible, setIsPinsVisible } = usePinsStore();
   return (
     <Card className="flex flex-row justify-between w-full">
       <TooltipProvider>
         <Tooltip>
           <TooltipTrigger
-            onClick={() => updatePinsVisibility(!isPinsVisible)}
+            onClick={() => setIsPinsVisible(!isPinsVisible)}
             className={"h-12 flex-1" + buttonVariants({ variant: "ghost" })}
           >
             {isPinsVisible ? <EyeIcon /> : <EyeOffIcon />}
