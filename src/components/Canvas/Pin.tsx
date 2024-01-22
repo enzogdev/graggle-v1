@@ -18,7 +18,7 @@ export default function Pin(pin: Pin) {
       <ContextMenu>
         <ContextMenuTrigger>
           <Circle
-            className="h-5 w-5  shadow-inner hover:scale-125 transition-transform will-change-transform"
+            className="h-5 w-5  drop-shadow hover:scale-125 transition-transform will-change-transform"
 
             // TODO Fix shadow in svg
           />

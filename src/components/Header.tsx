@@ -6,14 +6,25 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { MenuIcon } from "lucide-react";
+import { MenuIcon, MoonIcon, SunIcon } from "lucide-react";
 import { Button } from "./ui/button";
+import { useTheme } from "./theme-provider";
 
 export default function Header() {
+  const { setTheme, theme } = useTheme();
+
   return (
     <header className="w-full flex justify-between min-w-[300px]">
       <span className="text-3xl font-bold tracking-tighter">graggle</span>
-      <div>
+      <div className="flex flex-end">
+        <Button
+          variant="ghost"
+          size="icon"
+          className="p-2"
+          onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+        >
+          {theme === "light" ? <SunIcon /> : <MoonIcon />}
+        </Button>
         <Sheet>
           <SheetTrigger>
             <Button asChild variant="ghost" size="icon" className="p-2">

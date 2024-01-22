@@ -38,7 +38,7 @@ export const usePinsStore = create<PinState>((set) => ({
             y: 46.67,
         },
     },],
-    isPinsVisible: false,
+    isPinsVisible: true,
     activePin: null,
     updatePinsVisibility: (isPinsVisible: boolean) => set({ isPinsVisible }),
     createPin: (pin) => set((state) => ({ pinList: [...state.pinList, pin] })),
