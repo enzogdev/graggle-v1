@@ -7,7 +7,6 @@ export default function SaturationLightSelector() {
   const [hueValue, setHueValue] = useState(activePin?.color.hue ?? 0);
   useEffect(() => {
     setHueValue(activePin?.color.hue ?? 0);
-    console.log(activePin?.color.hue);
   }, [activePin]);
   return (
     <div
