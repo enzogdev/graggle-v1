@@ -3,7 +3,7 @@ import { v4 as uuid } from "uuid";
 
 export function useCrudPin() {
 
-    const { createPin } = usePinsStore();
+    const { createPin, setActivePin } = usePinsStore();
 
     const handleCreatePin = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
         const canvasElement = e.target as HTMLDivElement;
@@ -31,6 +31,7 @@ export function useCrudPin() {
             },
         };
         createPin(newPin);
+        setActivePin(newPin);
     };
 
     return {
