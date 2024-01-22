@@ -1,28 +1,24 @@
 import { usePinsStore } from "@/store/PinStore";
 import { Card } from "../ui/card";
-import { useDroppable } from "@dnd-kit/core";
 
 import Pin from "./Pin";
+import { pinsToCss } from "@/utils/colorUtils";
+import { useCrudPin } from "@/hooks/useCrudPin";
 
 export function Canvas() {
-  const { pinList } = usePinsStore();
+  const { pinList, isPinsVisible } = usePinsStore();
 
-  const { isOver, setNodeRef } = useDroppable({
-    id: "canvas",
-  });
-  const style = {
-    borderColor: isOver ? "green" : undefined,
-  };
+  const { handleCreatePin } = useCrudPin();
+
+  const gradientCanvas = pinsToCss(pinList);
   return (
     <Card
       id="canvas"
-      className="w-full h-full transition-all"
-      ref={setNodeRef}
-      style={style}
+      className="w-full h-full transition-all relative"
+      style={{ background: gradientCanvas }}
+      onClick={(e) => handleCreatePin(e)}
     >
-      {pinList.map((pin) => (
-        <Pin key={pin.id} {...pin} />
-      ))}
+      {isPinsVisible && pinList.map((pin) => <Pin key={pin.id} {...pin} />)}
     </Card>
   );
 }

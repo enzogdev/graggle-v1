@@ -1,4 +1,10 @@
-import { CopyIcon, EyeIcon, PaintBucketIcon, RatioIcon } from "lucide-react";
+import {
+  CopyIcon,
+  EyeIcon,
+  EyeOffIcon,
+  PaintBucketIcon,
+  RatioIcon,
+} from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
@@ -7,16 +13,19 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { usePinsStore } from "@/store/PinStore";
 
 export default function Toolbar() {
+  const { isPinsVisible, updatePinsVisibility } = usePinsStore();
   return (
     <Card className="flex flex-row justify-between w-full">
       <TooltipProvider>
         <Tooltip>
           <TooltipTrigger
+            onClick={() => updatePinsVisibility(!isPinsVisible)}
             className={"h-12 flex-1" + buttonVariants({ variant: "ghost" })}
           >
-            <EyeIcon />
+            {isPinsVisible ? <EyeIcon /> : <EyeOffIcon />}
           </TooltipTrigger>
           <TooltipContent>
             <p>Turn invisible pins</p>
