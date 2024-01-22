@@ -19,7 +19,7 @@ export const usePinsStore = create<PinState>((set) => ({
             hue: 41,
             saturation: 100,
             lightness: 50,
-            alpha: 1,
+            alpha: .5,
         },
         position: {
             x: 49.55,
