@@ -5,7 +5,7 @@ export default function PinCard() {
   return (
     <Button
       variant="outline"
-      className="flex flex-col w-full p-0 overflow-hidden my-2 group"
+      className="flex flex-col w-full p-0 overflow-hidden mt-4 group"
     >
       <div className="flex justify-between w-full h-full items-center">
         <div className="w-12 h-full bg-red-500"></div>

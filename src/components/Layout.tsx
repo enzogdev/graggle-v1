@@ -6,6 +6,7 @@ import Header from "./Header";
 import PinList from "./PinList";
 import Toolbar from "./ToolBar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { DndContext } from "@dnd-kit/core";
 
 export function Layout() {
   return (
@@ -35,7 +36,9 @@ export function Layout() {
           <Footer />
         </div>
         <div className="w-full h-full overflow-hidden p-0">
-          <Canvas />
+          <DndContext>
+            <Canvas />
+          </DndContext>
         </div>
       </div>
     </>
