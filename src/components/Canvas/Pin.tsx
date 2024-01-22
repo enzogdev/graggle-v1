@@ -8,7 +8,7 @@ import {
 import { usePinsStore } from "@/store/PinStore";
 
 export default function Pin(pin: Pin) {
-  const { activePin, setActivePin } = usePinsStore();
+  const { activePin, setActivePin, deletePinById } = usePinsStore();
 
   const style = {
     top: pin.position.y + "%",
@@ -42,7 +42,9 @@ export default function Pin(pin: Pin) {
             Edit
           </ContextMenuItem>
           <ContextMenuItem>Duplicate</ContextMenuItem>
-          <ContextMenuItem>Delete</ContextMenuItem>
+          <ContextMenuItem onClick={() => deletePinById(pin.id)}>
+            Delete
+          </ContextMenuItem>
         </ContextMenuContent>
       </ContextMenu>
     </button>
