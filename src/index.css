@@ -122,9 +122,14 @@ input[type="range"]::-webkit-slider-thumb {
 
 .ghost-class {
   width: 0px;
+  overflow: hidden;
+  padding: 0;
   border: 2px solid hsl(var(--input));
 }
 .grabbing-cursor {
   cursor: move;
 	cursor: -webkit-grabbing;
+}
+span[data-orientation = "vertical"] {
+  /* height: 100%; */
 }

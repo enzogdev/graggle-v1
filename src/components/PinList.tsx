@@ -1,5 +1,5 @@
 import { ScrollArea } from "@/components/ui/scroll-area";
-import PinCard from "./PinCard";
+import PinCard from "./PinCard/PinCard";
 import { usePinsStore } from "@/store/PinStore";
 import { ReactSortable } from "react-sortablejs";
 
