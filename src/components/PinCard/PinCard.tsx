@@ -38,15 +38,13 @@ export default function PinCard(pin: Pin) {
             <div className="h-full w-full flex items-center px-3">
               {convertColor(pin.color, "hex")}
             </div>
-            <AccordionTrigger>
-              <Button
-                asChild
-                variant="ghost"
-                size="sm"
-                className="p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              >
-                <ChevronDown className="h-full w-12" />
-              </Button>
+            <AccordionTrigger
+              className={
+                "px-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 aspect-square " +
+                buttonVariants({ variant: "ghost", size: "sm" })
+              }
+            >
+              <ChevronDown className="" />
             </AccordionTrigger>
           </div>
           <AccordionContent className="flex justify-between w-full h-full items-center pb-0">
