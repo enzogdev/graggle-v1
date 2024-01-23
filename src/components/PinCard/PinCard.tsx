@@ -34,24 +34,7 @@ export default function PinCard(pin: Pin) {
             <div
               className="w-14 aspect-square rounded relative overflow-hidden"
               style={{ backgroundColor: convertColor(pin.color, "hex") }}
-            >
-              <svg
-                width="2"
-                height="20"
-                className="bg-white h-full absolute opacity-80"
-                style={{ left: pin.position.x + "%", top: 0 }}
-              >
-                <line x1="20" y1="20" x2="20" y2="20"></line>
-              </svg>
-              <svg
-                width="20"
-                height="2"
-                className="bg-white w-full absolute opacity-80"
-                style={{ top: pin.position.y + "%", left: 0 }}
-              >
-                <line x1="20" y1="20" x2="20" y2="20"></line>
-              </svg>
-            </div>
+            ></div>
             <div className="h-full w-full flex items-center px-3">
               {convertColor(pin.color, "hex")}
             </div>
