@@ -32,9 +32,26 @@ export default function PinCard(pin: Pin) {
         <AccordionItem value="item-1">
           <div className="flex justify-between w-full h-full items-center">
             <div
-              className="w-14 aspect-square rounded p-2"
+              className="w-14 aspect-square rounded relative overflow-hidden"
               style={{ backgroundColor: convertColor(pin.color, "hex") }}
-            ></div>
+            >
+              <svg
+                width="2"
+                height="20"
+                className="bg-white h-full absolute opacity-80"
+                style={{ left: pin.position.x + "%", top: 0 }}
+              >
+                <line x1="20" y1="20" x2="20" y2="20"></line>
+              </svg>
+              <svg
+                width="20"
+                height="2"
+                className="bg-white w-full absolute opacity-80"
+                style={{ top: pin.position.y + "%", left: 0 }}
+              >
+                <line x1="20" y1="20" x2="20" y2="20"></line>
+              </svg>
+            </div>
             <div className="h-full w-full flex items-center px-3">
               {convertColor(pin.color, "hex")}
             </div>
@@ -43,14 +60,14 @@ export default function PinCard(pin: Pin) {
                 asChild
                 variant="ghost"
                 size="sm"
-                className="p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                className="p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
               >
                 <ChevronDown className="h-full w-12" />
               </Button>
             </AccordionTrigger>
           </div>
           <AccordionContent className="flex justify-between w-full h-full items-center pb-0">
-            <SelectorPosition />
+            <SelectorPosition {...pin} />
           </AccordionContent>
         </AccordionItem>
       </Accordion>
