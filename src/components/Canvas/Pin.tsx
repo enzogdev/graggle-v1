@@ -13,7 +13,6 @@ export default function Pin(pin: Pin) {
   const style = {
     top: pin.position.y + "%",
     left: pin.position.x + "%",
-    // translate: `-10px -10px`,
   };
 
   const circleClasses =

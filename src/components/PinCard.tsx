@@ -12,10 +12,10 @@ export default function PinCard(pin: Pin) {
       style={{
         borderColor:
           activePin?.id === pin.id ? convertColor(pin.color, "hex") : "",
-        background: `linear-gradient(135deg, hsla(${pin.color.hue}, ${pin.color.saturation}%, ${pin.color.lightness}%, .15) 0%, hsla(0,0%,0%,0) 80%)`,
+        background: `linear-gradient(135deg, hsla(${pin.color.hue}, ${pin.color.saturation}%, ${pin.color.lightness}%, .2) 0%, hsla(0,0%,0%,0) 80%)`,
       }}
       className={
-        "flex flex-col w-full p-0 overflow-hidden mt-4 group overflow-visible animate-fade-down " +
+        "flex flex-col w-full p-0 overflow-hidden my-4 group overflow-hidden animate-fade-down " +
         (activePin?.id === pin.id && "border-dashed border-2")
         // TODO fix reposition of elements when border increase
       }
