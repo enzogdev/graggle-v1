@@ -109,6 +109,7 @@ input[type="range"]::-webkit-slider-thumb {
 .animate-fade-down {
   animation: fadeDown 100ms ease-in;
 }
+
 @keyframes fadeDown {
   from {
     opacity: 0;
@@ -130,6 +131,15 @@ input[type="range"]::-webkit-slider-thumb {
   cursor: move;
 	cursor: -webkit-grabbing;
 }
-span[data-orientation = "vertical"] {
-  /* height: 100%; */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.accordion-chevron {
+  transition: transform 300ms;
+}
+.accordion-trigger[data-state='open'] > .accordion-chevron {
+  transform: rotate(180deg);
 }

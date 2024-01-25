@@ -5,7 +5,7 @@ import { convertColor } from "@/utils/colorUtils";
 
 export default function SelectorPosition(pin: Pin) {
   return (
-    <div className="flex flex-row w-full gap-4 h-full pt-4">
+    <div className="flex flex-row w-full gap-3 h-full pt-4">
       <Card className="w-full aspect-square relative bg-accent">
         <svg
           width="2"
