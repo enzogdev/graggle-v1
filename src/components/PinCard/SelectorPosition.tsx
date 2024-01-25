@@ -2,8 +2,26 @@ import { Label } from "@/components/ui/label";
 import { Input } from "../ui/input";
 import { Card } from "../ui/card";
 import { convertColor } from "@/utils/colorUtils";
+import { usePinsStore } from "@/store/PinStore";
 
 export default function SelectorPosition(pin: Pin) {
+  const { updatePin } = usePinsStore();
+
+  function handlePositionXChange(e: React.ChangeEvent<HTMLInputElement>): void {
+    const newX = parseFloat(e.target.value);
+    updatePin({
+      ...pin,
+      position: { ...pin.position, x: newX },
+    });
+  }
+  function handlePositionYChange(e: React.ChangeEvent<HTMLInputElement>): void {
+    const newY = parseFloat(e.target.value);
+    updatePin({
+      ...pin,
+      position: { ...pin.position, y: newY },
+    });
+  }
+
   return (
     <div className="flex flex-row w-full gap-3 h-full pt-4">
       <Card className="w-full aspect-square relative bg-accent">
@@ -34,11 +52,27 @@ export default function SelectorPosition(pin: Pin) {
       </Card>
       <div className="grid w-full max-w-sm items-center gap-1.5">
         <Label htmlFor="position-x">Axis X:</Label>
-        <Input type="number" id="position-x" value={pin.position.x} />
+        <Input
+          type="number"
+          id="position-x"
+          step="0.01"
+          min={0}
+          max={0}
+          onChange={(e) => handlePositionXChange(e)}
+          value={pin.position.x || 0}
+        />
       </div>
       <div className="grid w-full max-w-sm items-center gap-1.5">
         <Label htmlFor="position-y">Axis Y:</Label>
-        <Input type="number" id="position-y" value={pin.position.y} />
+        <Input
+          type="number"
+          step="0.01"
+          min={0}
+          max={0}
+          id="position-y"
+          onChange={(e) => handlePositionYChange(e)}
+          value={pin.position.y || 0}
+        />
       </div>
     </div>
   );
