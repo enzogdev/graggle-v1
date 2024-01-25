@@ -15,7 +15,7 @@ export function Canvas() {
   return (
     <Card
       id="canvas"
-      className="w-full h-full transition-all relative"
+      className="w-full h-full relative"
       style={{ background: gradientCanvas }}
       onClick={(e) => handleCreatePin(e)}
     >

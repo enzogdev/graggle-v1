@@ -1,5 +1,6 @@
 import { usePinsStore } from "@/store/PinStore";
 import { useEffect, useState } from "react";
+import { Card } from "../ui/card";
 
 export default function SaturationLightSelector() {
   const { activePin } = usePinsStore();
@@ -9,7 +10,7 @@ export default function SaturationLightSelector() {
     setHueValue(activePin?.color.hue ?? 0);
   }, [activePin]);
   return (
-    <div
+    <Card
       id="picking_area"
       className="aspect-[4/3] w-full relative"
       style={{
@@ -27,6 +28,6 @@ export default function SaturationLightSelector() {
           left: `calc(50% - 10px)`,
         }}
       ></div>
-    </div>
+    </Card>
   );
 }

@@ -46,6 +46,7 @@ export function useDraggablePin(pin: Pin) {
 
     const handleClick = (e: { stopPropagation: () => void; }) => {
         e.stopPropagation();
+        setActivePin(pin)
         console.log('clicked');
     };
 
