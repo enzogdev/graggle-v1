@@ -22,23 +22,11 @@ export const usePinsStore = create<PinState>((set) => ({
             alpha: .5,
         },
         position: {
-            x: 49.55,
-            y: 54.12,
+            x: 50,
+            y: 50,
         },
     },
-    {
-        id: "e60888a2-15c3-49af-973e-b9c64814bbaa",
-        color: {
-            hue: 313,
-            saturation: 100,
-            lightness: 50,
-            alpha: 1,
-        },
-        position: {
-            x: 11.42,
-            y: 46.67,
-        },
-    },],
+    ],
     activePin: null,
     isPinsVisible: true,
     setIsPinsVisible: (isPinsVisible) => set({ isPinsVisible }),
