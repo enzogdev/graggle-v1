@@ -1,5 +1,5 @@
 import { ScrollArea } from "@/components/ui/scroll-area";
-import PinCard from "./PinCard/PinCard";
+import PinCard from "./PinCard";
 import { usePinsStore } from "@/store/PinStore";
 import { ReactSortable } from "react-sortablejs";
 
@@ -11,6 +11,7 @@ export default function PinList() {
         animation={300}
         id="pinList"
         ghostClass="ghost-class"
+        filter=".ignore-elements"
         list={pinList}
         setList={setPinOrder}
       >

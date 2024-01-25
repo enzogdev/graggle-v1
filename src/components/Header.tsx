@@ -15,7 +15,7 @@ export default function Header() {
 
   return (
     <header className="w-full flex justify-between min-w-[300px]">
-      <span className="text-3xl font-bold tracking-tighter">graggle</span>
+      <span className="text-3xl font-bold tracking-tighter">graddle</span>
       <div className="flex flex-end">
         <Button
           variant="ghost"

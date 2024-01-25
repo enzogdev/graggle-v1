@@ -3,7 +3,7 @@ import ColorPickerWidget from "./ColorPickerWidget/ColorPickerWidget";
 import ColorSolidWidget from "./ColorSolidWidget/ColorSolidWidget";
 import { Footer } from "./Footer";
 import Header from "./Header";
-import PinList from "./PinList";
+import PinList from "./PinCard/PinList";
 import Toolbar from "./ToolBar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
