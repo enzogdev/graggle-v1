@@ -9,7 +9,7 @@ export default function PinList() {
   const { handlePinOrderChange } = useHandlePin();
 
   return (
-    <ScrollArea className="h-full w-full rounded-md border px-4">
+    <ScrollArea className="h-full w-full rounded-md border px-4 bg-card">
       <ReactSortable
         animation={300}
         id="pinList"

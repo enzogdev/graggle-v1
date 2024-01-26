@@ -7,13 +7,6 @@ type Pin = {
     color: Color;
     position: Position;
 }
-
-type Color = {
-    hue: number;
-    saturation: number;
-    lightness: number;
-    alpha: number;
-}
 type Color = {
     hue: number;
     saturation: number;

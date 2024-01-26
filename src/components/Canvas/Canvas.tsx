@@ -15,8 +15,8 @@ export function Canvas() {
   return (
     <Card
       id="canvas"
-      className="w-full h-full relative"
-      style={{ background: gradientCanvas }}
+      className="w-full h-full relative bg-card"
+      style={{ backgroundImage: gradientCanvas }}
       onClick={(e) => handleCreatePin(e)}
     >
       {isPinsVisible && pinList.map((pin) => <Pin key={pin.id} {...pin} />)}

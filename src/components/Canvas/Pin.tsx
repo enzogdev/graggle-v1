@@ -34,7 +34,7 @@ export default function Pin(pin: Pin) {
       onDragEnd={handleDragEnd}
       style={style}
       className="absolute"
-      onClick={() => setActivePin(pin)}
+      onMouseDown={() => setActivePin(pin)}
     >
       <ContextMenu>
         <ContextMenuTrigger>
