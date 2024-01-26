@@ -1,58 +1,58 @@
-import { usePinsStore } from "@/store/PinStore";
 import { useRef } from "react";
+import { useHandlePin } from "./useHandlePin";
 
-export function useDraggablePin(pin: Pin) {
-    const lastMousePos = useRef({ x: 0, y: 0 });
-    const canvas = document.getElementById('canvas');
-    const { updatePin, setActivePin } = usePinsStore();
 
-    const calculateNewPosition = (e: { clientX: number; clientY: number; }) => {
-        if (!canvas) return { x: 0, y: 0 };
+const useDraggablePin = (pin: Pin, canvas: HTMLElement) => {
+    const { handleSetActivePin, handleUpdatePin } = useHandlePin();
+    const lastMousePos = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
 
-        const deltaX = e.clientX - lastMousePos.current.x;
-        const deltaY = e.clientY - lastMousePos.current.y;
-        const newX = (pin.position.x + (deltaX / canvas.clientWidth) * 100).toFixed(2);
-        const newY = (pin.position.y + (deltaY / canvas.clientHeight) * 100).toFixed(2);
-        return { x: parseFloat(newX), y: parseFloat(newY) };
-    };
+    const transparentImage = new Image(100, 100);
+    transparentImage.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
 
-    const handleDragStart = (e: { clientX: number; clientY: number; }) => {
-        setActivePin(pin)
+
+    const handleDragStart = (e: React.DragEvent<HTMLDivElement>) => {
+        handleSetActivePin(pin);
         lastMousePos.current = { x: e.clientX, y: e.clientY };
     };
 
-    const handleDrag = (e: { clientX: number; clientY: number; }) => {
-        setActivePin(pin)
+    const updatePinPosition = (e: React.DragEvent<HTMLDivElement>) => {
+        const nativeEvent = e.nativeEvent as DragEvent;
+        nativeEvent.dataTransfer?.setDragImage(transparentImage, 10, 10);
         const { x, y } = calculateNewPosition(e);
         const newPin: Pin = { ...pin, position: { x, y } };
-        updatePin(newPin);
+        handleUpdatePin(newPin);
+    };
+
+    const handleDrag = (e: React.DragEvent<HTMLDivElement>) => {
+
+        updatePinPosition(e);
         lastMousePos.current = { x: e.clientX, y: e.clientY };
     };
 
-    const handleDragEnd = (e: React.DragEvent<HTMLButtonElement>) => {
-        e.stopPropagation();
-
-        const { x, y } = calculateNewPosition(e);
-        const newX = Math.min(Math.max(x, 0), 100);
-        const newY = Math.min(Math.max(y, 0), 100);
-
-        const newPin: Pin = { ...pin, position: { x: newX, y: newY } };
-
-        if (newX >= 0 && newX <= 100 && newY >= 0 && newY <= 100) {
-            updatePin(newPin);
-            setActivePin(newPin)
-        }
+    const handleDragEnd = (e: React.DragEvent<HTMLDivElement>) => {
+        updatePinPosition(e);
     };
 
-    const handleClick = (e: { stopPropagation: () => void; }) => {
-        e.stopPropagation();
-        console.log('clicked');
+    const calculateNewPosition = (
+        e: React.DragEvent<HTMLDivElement>
+    ): { x: number; y: number } => {
+        const deltaX = e.clientX - lastMousePos.current.x;
+        const deltaY = e.clientY - lastMousePos.current.y;
+
+        const percentageX = (deltaX / canvas.clientWidth) * 100;
+        const percentageY = (deltaY / canvas.clientHeight) * 100;
+
+        const newX = (pin.position.x + percentageX).toFixed(2);
+        const newY = (pin.position.y + percentageY).toFixed(2);
+
+        return { x: parseFloat(newX), y: parseFloat(newY) };
     };
 
     return {
         handleDragStart,
         handleDrag,
         handleDragEnd,
-        handleClick,
     };
-}
+};
+
+export default useDraggablePin;

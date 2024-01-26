@@ -3,12 +3,12 @@ import { Card } from "../ui/card";
 
 import Pin from "./Pin";
 import { pinsToCss } from "@/utils/colorUtils";
-import { useCrudPin } from "@/hooks/useCrudPin";
+import { useHandlePin } from "@/hooks/useHandlePin";
 
 export function Canvas() {
   const { pinList, isPinsVisible } = usePinsStore();
 
-  const { handleCreatePin } = useCrudPin();
+  const { handleCreatePin } = useHandlePin();
 
   const gradientCanvas = pinsToCss(pinList);
 

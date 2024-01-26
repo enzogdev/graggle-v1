@@ -6,9 +6,17 @@ import {
   ContextMenuTrigger,
 } from "@/components/ui/context-menu";
 import { usePinsStore } from "@/store/PinStore";
+import useDraggablePin from "@/hooks/useDraggablePin";
 
 export default function Pin(pin: Pin) {
   const { activePin, setActivePin, deletePinById } = usePinsStore();
+
+  const canvas = document.getElementById("canvas") as HTMLCanvasElement;
+  0;
+  const { handleDrag, handleDragStart, handleDragEnd } = useDraggablePin(
+    pin,
+    canvas
+  );
 
   const style = {
     top: pin.position.y + "%",
@@ -21,6 +29,9 @@ export default function Pin(pin: Pin) {
   return (
     <button
       draggable="true"
+      onDragStart={handleDragStart}
+      onDrag={handleDrag}
+      onDragEnd={handleDragEnd}
       style={style}
       className="absolute"
       onClick={() => setActivePin(pin)}

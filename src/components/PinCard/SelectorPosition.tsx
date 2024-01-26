@@ -5,20 +5,22 @@ import { convertColor } from "@/utils/colorUtils";
 import { usePinsStore } from "@/store/PinStore";
 
 export default function SelectorPosition(pin: Pin) {
-  const { updatePin } = usePinsStore();
+  const { updatePin, activePin } = usePinsStore();
 
   function handlePositionXChange(e: React.ChangeEvent<HTMLInputElement>): void {
     const newX = parseFloat(e.target.value);
+    if (!activePin) return;
     updatePin({
-      ...pin,
-      position: { ...pin.position, x: newX },
+      ...activePin,
+      position: { ...activePin.position, x: newX },
     });
   }
   function handlePositionYChange(e: React.ChangeEvent<HTMLInputElement>): void {
     const newY = parseFloat(e.target.value);
+    if (!activePin) return;
     updatePin({
-      ...pin,
-      position: { ...pin.position, y: newY },
+      ...activePin,
+      position: { ...activePin.position, y: newY },
     });
   }
 
