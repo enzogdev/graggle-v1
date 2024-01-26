@@ -6,18 +6,20 @@ const useDraggablePin = (pin: Pin, canvas: HTMLElement) => {
     const { handleSetActivePin, handleUpdatePin } = useHandlePin();
     const lastMousePos = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
 
-    const transparentImage = new Image(100, 100);
+    const transparentImage = new Image(1, 1);
     transparentImage.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
 
 
     const handleDragStart = (e: React.DragEvent<HTMLButtonElement>) => {
+        const nativeEvent = e.nativeEvent as DragEvent;
+        nativeEvent.dataTransfer?.setDragImage(transparentImage, 1, 1);
         handleSetActivePin(pin);
         lastMousePos.current = { x: e.clientX, y: e.clientY };
+        e.currentTarget.classList.add('grabbingCursor');
     };
 
     const updatePinPosition = (e: React.DragEvent<HTMLButtonElement>) => {
-        const nativeEvent = e.nativeEvent as DragEvent;
-        nativeEvent.dataTransfer?.setDragImage(transparentImage, 10, 10);
+
         const { x, y } = calculateNewPosition(e);
         const newPin: Pin = { ...pin, position: { x, y } };
         handleUpdatePin(newPin);
@@ -31,6 +33,7 @@ const useDraggablePin = (pin: Pin, canvas: HTMLElement) => {
 
     const handleDragEnd = (e: React.DragEvent<HTMLButtonElement>) => {
         updatePinPosition(e);
+        e.currentTarget.classList.remove('grabbingCursor');
     };
 
     const calculateNewPosition = (

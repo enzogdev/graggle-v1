@@ -24,11 +24,11 @@ export default function Pin(pin: Pin) {
   };
 
   const circleClasses =
-    "h-5 w-5 drop-shadow transition-transform will-change-transform text-white";
+    "h-5 w-5 drop-shadow transition-transform will-change-transform text-white pin";
 
   return (
     <button
-      draggable="true"
+      draggable
       onDragStart={handleDragStart}
       onDrag={handleDrag}
       onDragEnd={handleDragEnd}

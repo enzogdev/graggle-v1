@@ -18,6 +18,7 @@ export function Canvas() {
       className="w-full h-full relative bg-card"
       style={{ backgroundImage: gradientCanvas }}
       onClick={(e) => handleCreatePin(e)}
+      onDragOver={(event) => event.preventDefault()}
     >
       {isPinsVisible && pinList.map((pin) => <Pin key={pin.id} {...pin} />)}
     </Card>

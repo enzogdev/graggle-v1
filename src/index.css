@@ -143,3 +143,12 @@ input::-webkit-inner-spin-button {
 .accordion-trigger[data-state='open'] > .accordion-chevron {
   transform: rotate(180deg);
 }
+#canvas .pin:hover {
+  cursor: grab;
+}
+
+.pin:active  {
+    cursor: grabbing !important;
+}
+
+
