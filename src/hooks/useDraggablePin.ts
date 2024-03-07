@@ -1,9 +1,11 @@
 import { useRef } from "react";
 import { useHandlePin } from "./useHandlePin";
+import { usePinsStore } from "@/store/PinStore";
 
 
 const useDraggablePin = (pin: Pin, canvas: HTMLElement) => {
     const { handleSetActivePin, handleUpdatePin } = useHandlePin();
+    const { setActivePin } = usePinsStore();
     const lastMousePos = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
 
     const transparentImage = new Image(1, 1);
@@ -33,6 +35,7 @@ const useDraggablePin = (pin: Pin, canvas: HTMLElement) => {
 
     const handleDragEnd = (e: React.DragEvent<HTMLButtonElement>) => {
         updatePinPosition(e);
+        setActivePin(pin);
         e.currentTarget.classList.remove('grabbingCursor');
     };
 
