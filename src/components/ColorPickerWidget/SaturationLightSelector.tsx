@@ -1,5 +1,5 @@
 import { usePinsStore } from "@/store/PinStore";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Card } from "../ui/card";
 
 export default function SaturationLightSelector() {
